@@ -7,11 +7,11 @@
 // Функция InputNum вводит размерность массива с консоли и проверяет её корректность
 int InputNum(string txt)
 {
-    Console.WriteLine(txt);	        //  запрос размерности массива по вертикали
+    Console.WriteLine(txt);	                                                        //  приглашение на ввод
     int num = Convert.ToInt32(Console.ReadLine());
     while (num <= 0)
     {
-        Console.WriteLine($"Число должно быть целое, больше 0! \n{txt}");	        //  запрос размерности массива по вертикали
+        Console.WriteLine($"Число должно быть целое, больше 0! \n{txt}");	        //  предупреждение
         num = Convert.ToInt32(Console.ReadLine());
     }
     return (num);
