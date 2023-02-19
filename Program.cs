@@ -4,7 +4,20 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
-// Функция наполняет массив случайными действительными значениями
+// Функция InputNum вводит размерность массива с консоли и проверяет её корректность
+int InputNum(string txt)
+{
+    Console.WriteLine(txt);	        //  запрос размерности массива по вертикали
+    int num = Convert.ToInt32(Console.ReadLine());
+    while (num <= 0)
+    {        
+        Console.WriteLine($"Число должно быть целое, больше 0! \n{txt}");	        //  запрос размерности массива по вертикали
+        num = Convert.ToInt32(Console.ReadLine());
+    }    
+    return(num);
+}
+
+// Функция FillArray наполняет массив случайными действительными значениями
 double[,] FillArray(double[,] matr) 
 {
     for (int i = 0; i < matr.GetLength(0); i++)
@@ -13,22 +26,20 @@ double[,] FillArray(double[,] matr)
     return matr;
 }
 
-// Функция выводит значения массива на консоль
+// Функция PrintArray выводит значения массива на консоль
 void PrintArray(double[,] matr)
 {
      for (int i = 0; i < matr.GetLength(0); i++)
         {
         for (int j = 0; j < matr.GetLength(1); j++)
             Console.Write("\t"+matr[i, j]);
-        Console.WriteLine("");
+        Console.WriteLine();
         }
 }
 
 Console.Clear();				                                    //  очистка консоли
-Console.WriteLine("Введите размерность по вертикали m: ");	        //  запрос размерности массива по вертикали
-int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите размерность по горизонтали n: ");	    //  запрос размерности массива по горизонтали
-int n = Convert.ToInt32(Console.ReadLine());
+int m=InputNum("Введите размерность по вертикали m: ");             //  запрос размерности массива по вертикали
+int n=InputNum("Введите размерность по горизонтали m: ");           //  запрос размерности массива по горизонтали
 double[,] matrix = new double[m, n];
 FillArray(matrix);                                                  //  вызов функции по наполнению массива случайными вещ. числами
 PrintArray(matrix);                                                 //  вызов функции по выводу массива в консоль
